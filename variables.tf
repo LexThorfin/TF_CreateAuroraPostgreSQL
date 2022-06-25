@@ -39,6 +39,16 @@ variable "db" {
     }
 }
 
+variable "sqldb" {
+    type = map
+    default = {
+        id = "rds-mssql"
+        engine = "sqlserver-ex"
+        ver = "15.00.4198.2.v1"
+        instance = "db.t3.small"
+
+    }
+}
 variable "sg" {
     type = string
     default = "sg-0ed8a069614427654"

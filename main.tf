@@ -44,13 +44,13 @@ resource "aws_rds_cluster" "TFSatt" {
 }
 
 resource "aws_db_instance" "mssql" {
-    identifier = "rds-mssql"
+    identifier = var.sqldb["id"]
     allocated_storage = "20"
     license_model = "license-included"
     storage_type = "gp2"
-    engine = "sqlserver-ex"
-    engine_version = "15.00.4198.2.v1"
-    instance_class = "db.t3.medium"
+    engine = var.sqldb["engine"]
+    engine_version = var.sqldb["ver"]
+    instance_class = var.sqldb["instance"]
     multi_az = false
     username = var.db["uname"]
     password = var.db["pw"]
